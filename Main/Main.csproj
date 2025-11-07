@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageOutputPath />
+    <BaseOutputPath>..\..\Beat Saber_Data\Managed</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
