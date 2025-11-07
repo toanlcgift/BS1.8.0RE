@@ -264,6 +264,33 @@ public class MainFlowCoordinator : FlowCoordinator
 		}
 	}
 
+	protected void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Z))
+		{
+			base.PresentFlowCoordinator(this._soloFreePlayFlowCoordinator, null, true, false);
+		}
+		else if (Input.GetKeyDown(KeyCode.X))
+		{
+			base.PresentFlowCoordinator(this._campaignFlowCoordinator, null, true, false);
+		}
+		else if (Input.GetKeyDown(KeyCode.C))
+		{
+			base.PresentFlowCoordinator(this._settingsFlowCoordinator, null, true, false);
+		}
+		else if (Input.GetKeyDown(KeyCode.V))
+		{
+			base.PresentViewController(this._howToPlayViewController, null, true);
+		}
+		else if (Input.GetKeyDown(KeyCode.B))
+		{
+			this._menuTransitionsHelper.StartBeatmapEditor(delegate
+			{
+				this._beatmapLevelsModel.ClearLoadedBeatmapLevelsCaches();
+			});
+		}
+	}
+
 	// Token: 0x06001027 RID: 4135 RVA: 0x0000C55B File Offset: 0x0000A75B
 	private IEnumerator ProcessMenuDestinationRequestAfterFrameCoroutine(MenuDestination destination)
 	{
