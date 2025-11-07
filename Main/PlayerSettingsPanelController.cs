@@ -27,31 +27,31 @@ public class PlayerSettingsPanelController : MonoBehaviour, IRefreshable
 	protected void Awake()
 	{
 		this._toggleBinder = new ToggleBinder();
-		this._toggleBinder.AddBinding(this._leftHandedToggle, delegate(bool on)
+		this._toggleBinder.AddBinding(this._leftHandedToggle, delegate (bool on)
 		{
 			this._playerSpecificSettings.leftHanded = on;
 		});
-		this._toggleBinder.AddBinding(this._staticLightsToggle, delegate(bool on)
+		this._toggleBinder.AddBinding(this._staticLightsToggle, delegate (bool on)
 		{
 			this._playerSpecificSettings.staticLights = on;
 		});
-		this._toggleBinder.AddBinding(this._reduceDebrisToggle, delegate(bool on)
+		this._toggleBinder.AddBinding(this._reduceDebrisToggle, delegate (bool on)
 		{
 			this._playerSpecificSettings.reduceDebris = on;
 		});
-		this._toggleBinder.AddBinding(this._noTextsAndHudsToggle, delegate(bool on)
+		this._toggleBinder.AddBinding(this._noTextsAndHudsToggle, delegate (bool on)
 		{
 			this._playerSpecificSettings.noTextsAndHuds = on;
 		});
-		this._toggleBinder.AddBinding(this._advanceHudToggle, delegate(bool on)
+		this._toggleBinder.AddBinding(this._advanceHudToggle, delegate (bool on)
 		{
 			this._playerSpecificSettings.advancedHud = on;
 		});
-		this._toggleBinder.AddBinding(this._autoRestartToggle, delegate(bool on)
+		this._toggleBinder.AddBinding(this._autoRestartToggle, delegate (bool on)
 		{
 			this._playerSpecificSettings.autoRestart = on;
 		});
-		this._toggleBinder.AddBinding(this._automaticPlayerHeightToggle, delegate(bool on)
+		this._toggleBinder.AddBinding(this._automaticPlayerHeightToggle, delegate (bool on)
 		{
 			this._playerSpecificSettings.automaticPlayerHeight = on;
 			this._playerHeightSettingsController.interactable = !on;
@@ -74,6 +74,23 @@ public class PlayerSettingsPanelController : MonoBehaviour, IRefreshable
 		if (this._saberTrailIntensitySettingsController != null)
 		{
 			this._saberTrailIntensitySettingsController.valueDidChangeEvent -= this.HandleSaberTrailIntensitySettingsControllerValueDidChange;
+		}
+	}
+
+	Action<PlayerSettingsViewController> _didFinishEvent;
+	PlayerSettingsViewController _playerSettingsViewController;
+
+	internal void SetActionCallback(Action<PlayerSettingsViewController> didFinishEvent, PlayerSettingsViewController playerSettingsViewController)
+	{
+		_didFinishEvent = didFinishEvent;
+		_playerSettingsViewController = playerSettingsViewController;
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Backspace))
+		{
+			_didFinishEvent.Invoke(_playerSettingsViewController);
 		}
 	}
 

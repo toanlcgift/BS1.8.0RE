@@ -289,6 +289,20 @@ public class MainFlowCoordinator : FlowCoordinator
 				this._beatmapLevelsModel.ClearLoadedBeatmapLevelsCaches();
 			});
 		}
+		else if (Input.GetKeyDown(KeyCode.N))
+		{
+			this._menuTransitionsHelper.ShowCredits();
+		}
+		else if(Input.GetKeyDown(KeyCode.M))
+		{
+			this._fadeInOut.FadeOutInstant();
+			Application.Quit();
+		}
+		else if (Input.GetKeyDown(KeyCode.A))
+		{
+			this._playerSettingsViewController.hideBackButton = false;
+			base.PresentViewController(this._playerSettingsViewController, null, false);
+		}
 	}
 
 	// Token: 0x06001027 RID: 4135 RVA: 0x0000C55B File Offset: 0x0000A75B

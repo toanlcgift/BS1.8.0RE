@@ -40,6 +40,7 @@ public class PlayerSettingsViewController : ViewController
 		}
 		this._playerSettingsPanelController.SetData(this._playerDataModelSO.playerData.playerSpecificSettings);
 		this._playerSettingsPanelController.Refresh();
+		this._playerSettingsPanelController.SetActionCallback(this.didFinishEvent, this);
 	}
 
 	// Token: 0x040011F4 RID: 4596
