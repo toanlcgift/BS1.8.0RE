@@ -10,8 +10,8 @@ public class ObstacleSaberSparkleEffect : MonoBehaviour
 	{
 		set
 		{
-			//this._sparkleParticleSystem.main.startColor = value;
-			//this._burnParticleSystem.main.startColor = value;
+			this._sparkleParticleSystem.startColor = value;
+			this._burnParticleSystem.startColor = value;
 		}
 	}
 

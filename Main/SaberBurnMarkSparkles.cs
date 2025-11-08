@@ -24,7 +24,7 @@ public class SaberBurnMarkSparkles : MonoBehaviour
 			rotation.eulerAngles = new Vector3(-90f, 0f, 0f);
 			this._burnMarksPS[i] = UnityEngine.Object.Instantiate<ParticleSystem>(this._burnMarksPSPrefab, Vector3.zero, rotation, null);
 			this._burnMarksEmmisionModules[i] = this._burnMarksPS[i].emission;
-			//this._burnMarksPS[i].main.startColor = this._colorManager.EffectsColorForSaberType(this._sabers[i].saberType);
+			this._burnMarksPS[i].startColor = this._colorManager.EffectsColorForSaberType(this._sabers[i].saberType);
 			this._prevBurnMarkPosValid[i] = false;
 		}
 	}

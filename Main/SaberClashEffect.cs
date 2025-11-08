@@ -14,8 +14,8 @@ public class SaberClashEffect : MonoBehaviour
 		this._glowParticleSystemEmmisionModule = this._glowParticleSystem.emission;
 		this._glowParticleSystemEmmisionModule.enabled = false;
 		Color color = Color.Lerp(this._colorManager.EffectsColorForSaberType(SaberType.SaberA), this._colorManager.EffectsColorForSaberType(SaberType.SaberB), 0.5f);
-		//this._sparkleParticleSystem.main.startColor = color;
-		//this._glowParticleSystem.main.startColor = color;
+		this._sparkleParticleSystem.startColor = color;
+		this._glowParticleSystem.startColor = color;
 	}
 
 	// Token: 0x06000B0F RID: 2831 RVA: 0x00008AB3 File Offset: 0x00006CB3
