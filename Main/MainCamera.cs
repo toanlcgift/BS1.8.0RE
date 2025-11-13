@@ -76,6 +76,14 @@ public class MainCamera : MonoBehaviour
 		{
 			this.liv.OnLIVUpdate();
 		}
+		if (Input.GetKeyDown(KeyCode.UpArrow))
+		{
+			this._transform.position += new Vector3(0, 0, 1f);
+		}
+		if (Input.GetKeyDown(KeyCode.DownArrow))
+		{
+			this._transform.position += new Vector3(0, 0, -1f);
+		}
 	}
 
 	// Token: 0x060014A3 RID: 5283 RVA: 0x0000F8F3 File Offset: 0x0000DAF3
