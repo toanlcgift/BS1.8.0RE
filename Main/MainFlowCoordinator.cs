@@ -303,6 +303,10 @@ public class MainFlowCoordinator : FlowCoordinator
 			this._playerSettingsViewController.hideBackButton = false;
 			base.PresentViewController(this._playerSettingsViewController, null, false);
 		}
+		else if(Input.GetKeyDown(KeyCode.S))
+		{
+			this._menuTransitionsHelper.RestartGame();
+		}
 	}
 
 	// Token: 0x06001027 RID: 4135 RVA: 0x0000C55B File Offset: 0x0000A75B

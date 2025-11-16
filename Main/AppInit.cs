@@ -23,7 +23,6 @@ public abstract class AppInit : MonoInstaller
 	public override void Start()
 	{
 		base.Start();
-		File.WriteAllText("ahihi.txt", "AppInit");
 		AppInit.AppStartType appStartType = this.GetAppStartType();
 		if (appStartType == AppInit.AppStartType.AppStart || appStartType == AppInit.AppStartType.AppRestart)
 		{
